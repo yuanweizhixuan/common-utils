@@ -29,7 +29,7 @@ $(function () {
 
 		/**
 		 * 如果默认就是选中状态的，需要给他添加相应的类并且val的值改为：true
-		 * @param  { Element } el 需要设置样式或者取消样式的element元素
+		 * @param  { HTMLElement } el 需要设置样式或者取消样式的element元素
 		 */
 		function setDefaultStyle(el) {
 			var value = $(el).attr("data-value");
