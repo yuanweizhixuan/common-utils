@@ -14,7 +14,6 @@ $(function () {
 
 	init()
 
-
 	function setDefaultPagination() {
 		for (let i = 0; i < paginationEl.length; i++) {
 			generatePagination($(paginationEl[i]))
@@ -83,9 +82,13 @@ $(function () {
 		paginationStr = `
 			<input type="text" class="m-p-ipt" placeholder="页码">
 			<div class="m-pagination-item m-p-go">跳转</div>
-			<div class="m-pagination-item m-p-prev">&lt</div>
+			<div class="m-pagination-item m-p-prev">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+			</div>
 				${pageNumStr}
-			<div class="m-pagination-item m-p-next">&gt</div>
+			<div class="m-pagination-item m-p-next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+			</div>
 		`
 		element.html(paginationStr)
 		pageNumStr = ''
@@ -183,9 +186,9 @@ $(function () {
 				index = parseInt(index)
 			}
 			// 如果当前输入的页码等于 当前已经跳转的页码 则直接return
-			if (index === pageIndex) {
+			if (index === pageIndex)
 				return
-			}
+
 			// 如果当前输入的页码 大于总页码  则跳转到最后一页
 			if (index > pageTotal) {
 				index = pageTotal
@@ -195,6 +198,7 @@ $(function () {
 			_this.attr("data-pageIndex", pageIndex) //当前页
 			generatePagination(_this)
 			_this.children(".m-p-ipt").val(pageIndex)
+			console.log("跳转到输入的页码");
 		})
 	}
 

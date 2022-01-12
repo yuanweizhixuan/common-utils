@@ -4,18 +4,16 @@
  * @returns {String} 拼接后的小时分钟描述字符串
  */
 function getDayTime(dateStr) {
-    var date = new Date(dateStr)
-    var h ,
-        m ,
-        s
-    h = date.getHours()
-    m = date.getMinutes()
-    s = date.getSeconds()
+	var date = new Date(dateStr);
+	var h, m, s;
+	h = date.getHours();
+	m = date.getMinutes();
+	s = date.getSeconds();
 
-    h = h >= 10 ? h : '0' + h
-    m = m >= 10 ? m : '0' + m
-    s = s >= 10 ? s : '0' + s
-    return h + ':' + m + ':' + s
+	h = h >= 10 ? h : "0" + h;
+	m = m >= 10 ? m : "0" + m;
+	s = s >= 10 ? s : "0" + s;
+	return h + ":" + m + ":" + s;
 }
 
-console.log('getDayTime(new Date())', getDayTime(new Date()));
+console.log("getDayTime(new Date())", getDayTime(new Date()));
